@@ -35,14 +35,15 @@ t_co *add_link(char *str)
 
 int main(int ac, char **av)
 {
-	DIR* rep = NULL;
-	struct dirent* read_file = NULL;
 	t_co *list;
+	t_info *e;
+	e = malloc(sizeof(t_info));
+	ft_memset();
 	if (ac == 1)
 		rep = opendir("./");
 	if (ac == 2)
 		rep = opendir(av[1]);
-	ac = 0;
+
 	list = NULL;
 
 	if (rep == NULL)
@@ -57,8 +58,6 @@ int main(int ac, char **av)
 		}
 	}
 	print_list(list);
-
-
 
 	if (closedir(rep) == -1)
         exit(-1);
