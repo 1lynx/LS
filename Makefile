@@ -14,7 +14,7 @@
 
 NAME = libft/libft.a
 
-SRC =	srcs/main.c		\
+SRC =	srcs/main.c	srcs/list.c	\
 
 EXE = wolf
 

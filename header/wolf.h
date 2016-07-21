@@ -16,6 +16,12 @@
 #include <dirent.h>
 #include <sys/types.h>
 
+typedef struct s_info
+{
+	DIR* rep;
+	struct dirent* read_file;
+}								t_info;
+
 
 typedef struct s_co
 {
@@ -28,3 +34,4 @@ typedef struct s_co
 void print_list(t_co *list);
 void		ft_push_back_t(t_co **list, char *str);
 t_co *add_link(char *str);
+void ft_readdir(t_info *e, t_co *list);
