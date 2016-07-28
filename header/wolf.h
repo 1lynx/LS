@@ -26,12 +26,13 @@ typedef struct s_info
 typedef struct s_co
 {
 	char *filename;
-	struct s_co *next;
+	int test;
 }				t_co;
 
 
 
-void print_list(t_co *list);
-void		ft_push_back_t(t_co **list, char *str);
-t_co *add_link(char *str);
-void ft_readdir(t_info *e, t_co *list);
+void print_list(t_list **list);
+// void		ft_push_back_t(t_co **list, char *str);
+// t_co *add_link(char *str);
+void ft_readdir(t_info *e, t_list **list);
+void print_co(t_co *e);
