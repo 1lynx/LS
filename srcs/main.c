@@ -1,28 +1,27 @@
 #include "../header/wolf.h"
 
-void ft_readdir(t_info *e, t_list **list)
+void ft_readdir(t_info *e, t_co **list)
 {
 	t_co *co;
-	int i = 0;
+	struct stat *buf;
 
 	while((e->read_file = readdir(e->rep)) != NULL)
 	{
 		if((ft_strcmp(e->read_file->d_name, ".") != 0) && (ft_strcmp(e->read_file->d_name, "..") != 0))
 		{
 				co = malloc(sizeof(t_co));
-				co->test = i;
-				co->filename = ft_strdup(e->read_file->d_name);
-				ft_push_back(list, co, 0);
-				i++;
+				buf = (struct stat *)malloc(sizeof(struct stat));
+				lstat(e->read_file->d_name, buf);
+				e->stat = buf;
+				ft_push_back_t(list, e);
 		}
-
 	}
 }
 
 int main(int ac, char **av)
 {
-	t_list *list;
 	t_info *e;
+	t_co *list;
 	e = malloc(sizeof(t_info));
 	e->rep = NULL;
 	e->read_file = NULL;
