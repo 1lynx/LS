@@ -14,6 +14,8 @@ void print_list(t_co **list)
 
 	 while(tmp != NULL)
 	 {
+		 printf("%d  ", tmp->direct);
+		 printf("%s     ", tmp->ttime);
 		 printf("%s     ", tmp->filename);
 		 printf("%d\n", tmp->size);
 		 tmp = tmp->next;
@@ -42,6 +44,9 @@ t_co *add_link(t_info *e)
 	{
 		tmp->filename = ft_strdup(e->read_file->d_name);
 		tmp->size = (int)e->stat->st_size;
+		tmp->ttime = ctime(&e->stat->st_mtime);
+		tmp->ttime[ft_strlen(tmp->ttime) - 1] = ' ';
+		tmp->direct = S_ISDIR(e->stat->st_mode);
 		tmp->next = NULL;
 	}
 	return(tmp);

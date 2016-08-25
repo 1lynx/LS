@@ -6,7 +6,7 @@
 /*   By: cchampda <cchampda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 16:40:08 by cchampda          #+#    #+#             */
-/*   Updated: 2016/07/20 16:13:46 by cchampda         ###   ########.fr       */
+/*   Updated: 2016/08/25 17:39:55 by cchampda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_co
 {
 	char *filename;
 	int size;
+	char *ttime;
+	int direct;
 	struct s_co *next;
 }							t_co;
 
